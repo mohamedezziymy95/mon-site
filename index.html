@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محمد الزعيم | أستاذ الفيزياء والكيمياء ومطور تطبيقات تعليمية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --bg: #101F1B;
+    --bg-panel: #182D26;
+    --bg-panel-alt: #1E362D;
+    --amber: #E7A33E;
+    --amber-dim: #B9812E;
+    --teal: #74B9AE;
+    --text: #F6F3E9;
+    --text-muted: #B4C7BC;
+    --border: rgba(243,239,226,0.12);
+    --border-strong: rgba(243,239,226,0.24);
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  body{
+    position: relative;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Tajawal', sans-serif;
+    font-size: 16.5px;
+    line-height: 1.85;
+    background-image:
+      radial-gradient(ellipse 900px 500px at 78% -6%, rgba(231,163,62,0.10), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 6% 18%, rgba(116,185,174,0.08), transparent 60%),
+      linear-gradient(180deg, #142720 0%, #101F1B 22%, #0E1B17 100%),
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: auto, auto, auto, 34px 34px, 34px 34px;
+    background-position: center top;
+    background-repeat: no-repeat, no-repeat, no-repeat, center top, center top;
+    background-attachment: fixed, fixed, fixed, scroll, scroll;
+  }
+  body::before{
+    content:"";
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    opacity: 0.5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%23E7A33E' stroke-width='1'%3E%3Cline x1='30' y1='40' x2='90' y2='75' /%3E%3Cline x1='90' y1='75' x2='90' y2='145' /%3E%3Cline x1='90' y1='145' x2='30' y2='180' /%3E%3Cline x1='170' y1='30' x2='170' y2='100' /%3E%3Cline x1='170' y1='100' x2='120' y2='130' /%3E%3C/g%3E%3Cg fill='%2374B9AE'%3E%3Ccircle cx='30' cy='40' r='3'/%3E%3Ccircle cx='90' cy='75' r='3'/%3E%3Ccircle cx='90' cy='145' r='3'/%3E%3Ccircle cx='30' cy='180' r='3'/%3E%3Ccircle cx='170' cy='30' r='3'/%3E%3Ccircle cx='170' cy='100' r='3'/%3E%3Ccircle cx='120' cy='130' r='3'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 260px 260px;
+    background-repeat: repeat;
+    mix-blend-mode: soft-light;
+  }
+  h1,h2,h3, .headline{
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  a{ color: inherit; text-decoration: none; }
+  img{ max-width: 100%; display:block; }
+  .wrap{ max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+  /* ===== Header ===== */
+  header{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(18,33,29,0.86);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content: space-between;
+    padding: 16px 28px; max-width: 1080px; margin:0 auto;
+  }
+  .brand{
+    font-family:'Amiri', serif; font-weight:700; font-size: 1.15rem;
+    display:flex; align-items:center; gap:10px;
+  }
+  .brand .dot{
+    width:9px; height:9px; border-radius:50%; background: var(--amber);
+    box-shadow: 0 0 0 3px rgba(231,163,62,0.18);
+  }
+  nav.links{ display:flex; gap: 28px; font-size: 0.95rem; color: var(--text-muted); }
+  nav.links a:hover{ color: var(--amber); }
+  .nav-toggle{ display:none; }
+
+  /* ===== Hero ===== */
+  .hero{ padding: 96px 0 72px; position: relative; overflow: hidden; }
+  .hero-grid{
+    display:grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items:center;
+  }
+  .eyebrow-role{
+    display:inline-flex; align-items:center; gap:8px;
+    color: var(--teal); font-size: 0.92rem; margin-bottom: 18px;
+  }
+  .eyebrow-role i{ font-size: 0.8rem; }
+  .hero h1{
+    font-size: clamp(2.1rem, 4.4vw, 3.1rem);
+    line-height: 1.35;
+    margin-bottom: 18px;
+  }
+  .hero p.lead{
+    color: var(--text-muted); font-size: 1.08rem; max-width: 52ch; margin-bottom: 30px;
+  }
+  .role-tags{ display:flex; flex-wrap:wrap; gap: 10px; }
+  .tag{
+    border: 1px solid var(--border-strong);
+    padding: 7px 16px; border-radius: 100px;
+    font-size: 0.86rem; color: var(--text);
+    background: rgba(243,239,226,0.03);
+  }
+
+  .photo-frame{
+    position: relative; width: 100%; aspect-ratio: 4/5;
+    border: 1.5px dashed var(--border-strong);
+    border-radius: 6px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap: 14px; text-align:center; padding: 24px;
+    background: linear-gradient(155deg, var(--bg-panel), var(--bg-panel-alt));
+  }
+  .photo-frame i{ font-size: 2.1rem; color: var(--amber-dim); }
+  .photo-frame span{ color: var(--text-muted); font-size: 0.88rem; }
+  .photo-frame small{ color: var(--text-muted); opacity: 0.65; font-size: 0.76rem; }
+  .corner{ position:absolute; width:16px; height:16px; border-color: var(--amber); }
+  .corner.tl{ top:10px; right:10px; border-top:2px solid var(--amber); border-right:2px solid var(--amber); }
+  .corner.br{ bottom:10px; left:10px; border-bottom:2px solid var(--amber); border-left:2px solid var(--amber); }
+
+  /* orbit decoration */
+  .orbit-decor{ position:absolute; left:-60px; bottom:-60px; width:260px; height:260px; opacity:0.5; pointer-events:none; }
+  @media (prefers-reduced-motion: no-preference){
+    .orbit-decor .ring{ animation: spin 18s linear infinite; transform-origin: 130px 130px; }
+    .orbit-decor .ring2{ animation: spin 26s linear infinite reverse; transform-origin: 130px 130px; }
+  }
+  @keyframes spin{ to{ transform: rotate(360deg); } }
+
+  /* ===== Section shell ===== */
+  section{ padding: 76px 0; border-top: 1px solid var(--border); }
+  .section-head{ margin-bottom: 42px; max-width: 62ch; }
+  .section-head .kicker{ color: var(--teal); font-size: 0.92rem; margin-bottom: 10px; }
+  .section-head h2{ font-size: clamp(1.6rem, 3vw, 2.1rem); }
+  .section-head p{ color: var(--text-muted); margin-top: 12px; }
+
+  /* ===== About ===== */
+  .about-body{ display:grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .about-body p{ color: var(--text-muted); margin-bottom: 16px; font-size: 1.02rem; }
+  .subject-cards{ display:flex; flex-direction:column; gap: 16px; }
+  .subject-card{
+    border: 1px solid var(--border); border-radius: 6px; padding: 20px 22px;
+    background: var(--bg-panel); display:flex; gap:16px; align-items:flex-start;
+  }
+  .subject-card i{ color: var(--amber); font-size: 1.3rem; margin-top: 3px; }
+  .subject-card h3{ font-size: 1.08rem; margin-bottom: 6px; font-family:'Tajawal',sans-serif; font-weight: 700; }
+  .subject-card p{ color: var(--text-muted); font-size: 0.94rem; margin:0; }
+
+  /* ===== Apps ===== */
+  .apps-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .app-card{
+    border: 1px solid var(--border); border-radius: 8px; padding: 28px 24px;
+    background: var(--bg-panel); display:flex; flex-direction:column; height:100%;
+  }
+  .app-card .app-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom: 18px; }
+  .app-icon{
+    width: 46px; height:46px; border-radius: 8px; display:flex; align-items:center; justify-content:center;
+    background: rgba(231,163,62,0.12); color: var(--amber); font-size: 1.15rem;
+  }
+  .status{ font-size: 0.72rem; padding: 4px 11px; border-radius: 100px; border:1px solid; }
+  .status.live{ color:#8FD6C8; border-color: rgba(143,214,200,0.4); background: rgba(116,185,174,0.08); }
+  .status.soon{ color: var(--amber); border-color: rgba(231,163,62,0.4); background: rgba(231,163,62,0.08); }
+  .app-card h3{ font-family:'Tajawal',sans-serif; font-weight:800; font-size: 1.12rem; margin-bottom:10px; }
+  .app-card p{ color: var(--text-muted); font-size: 0.92rem; flex-grow:1; margin-bottom: 18px; }
+  .app-link{
+    display:inline-flex; align-items:center; gap:8px; font-size:0.9rem; color: var(--teal);
+    border-top: 1px solid var(--border); padding-top: 14px;
+  }
+  .app-link.disabled{ color: var(--text-muted); opacity:0.55; }
+  .app-link i{ font-size: 0.85rem; }
+
+  /* ===== Content creator ===== */
+  .content-block{
+    display:grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items:center;
+    background: var(--bg-panel); border:1px solid var(--border); border-radius: 10px; padding: 40px;
+  }
+  .yt-badge{
+    width:64px; height:64px; border-radius: 10px; background: rgba(231,163,62,0.12);
+    color: var(--amber); display:flex; align-items:center; justify-content:center; font-size:1.6rem; margin-bottom: 18px;
+  }
+  .content-block h3{ font-family:'Tajawal',sans-serif; font-weight:800; font-size:1.3rem; margin-bottom: 14px; }
+  .content-block p{ color: var(--text-muted); }
+  .content-points{ display:flex; flex-direction:column; gap: 14px; }
+  .content-points .pt{ display:flex; gap:12px; align-items:flex-start; }
+  .content-points .pt i{ color: var(--teal); margin-top: 4px; font-size: 0.85rem; }
+  .content-points .pt span{ color: var(--text-muted); font-size: 0.95rem; }
+
+  /* ===== Contact ===== */
+  .contact-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .contact-card{
+    border: 1px solid var(--border); border-radius: 8px; padding: 26px 22px;
+    background: var(--bg-panel); display:flex; flex-direction:column; gap:14px;
+  }
+  .contact-card i{ font-size: 1.25rem; color: var(--amber); }
+  .contact-card .label{ color: var(--text-muted); font-size: 0.82rem; }
+  .contact-card .value{ font-size: 1.02rem; font-weight:600; word-break: break-word; }
+  .contact-card.cta{ border-color: var(--border-strong); }
+
+  footer{ border-top: 1px solid var(--border); padding: 30px 0; }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap: 12px; }
+  footer p{ color: var(--text-muted); font-size: 0.86rem; }
+  footer .fmark{ font-family:'Amiri', serif; color: var(--text-muted); }
+
+  @media (max-width: 860px){
+    nav.links{ display:none; }
+    .hero-grid, .about-body, .content-block{ grid-template-columns: 1fr; }
+    .hero-grid{ display:flex; flex-direction:column-reverse; }
+    .apps-grid, .contact-grid{ grid-template-columns: 1fr; }
+    .photo-frame{ max-width: 320px; margin: 0 auto; }
+  }
+
+  :focus-visible{ outline: 2px solid var(--amber); outline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand"><span class="dot"></span> محمد الزعيم</div>
+    <nav class="links">
+      <a href="#about">عني</a>
+      <a href="#subjects">التخصصات</a>
+      <a href="#apps">تطبيقاتي</a>
+      <a href="#content">المحتوى التعليمي</a>
+      <a href="#contact">تواصل معي</a>
+      <a href="https://www.youtube.com/@mohamedez-ziymy8617" target="_blank" rel="noopener" aria-label="قناتي على يوتيوب"><i class="fa-brands fa-youtube"></i></a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="orbit-decor" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="130" cy="130" r="6" fill="#E7A33E"/>
+    <ellipse class="ring" cx="130" cy="130" rx="100" ry="42" fill="none" stroke="#74B9AE" stroke-width="1.2" opacity="0.6"/>
+    <ellipse class="ring2" cx="130" cy="130" rx="42" ry="100" fill="none" stroke="#E7A33E" stroke-width="1.2" opacity="0.5"/>
+  </svg>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow-role"><i class="fa-solid fa-atom"></i> الثانوية التأهيلية الوفاق، سيدي الزوين</div>
+      <h1 class="headline">أستاذ الفيزياء والكيمياء، ومطور تطبيقات تجعل التعلم أقرب إلى التلاميذ</h1>
+      <p class="lead">أجمع بين التدريس داخل الفصل وتطوير حلول رقمية بيداغوجية، لأصنع تجربة تعليمية تواكب التلميذ داخل القسم وخارجه.</p>
+      <div class="role-tags">
+        <span class="tag">أستاذ الفيزياء والكيمياء</span>
+        <span class="tag">مطور تطبيقات بيداغوجية</span>
+        <span class="tag">منتج محاكاة تعليمية</span>
+        <span class="tag">صانع محتوى على يوتيوب</span>
+      </div>
+    </div>
+    <div class="photo-frame">
+  <div class="corner tl"></div>
+  <div class="corner br"></div>
+  <img src="ma_photo.jpg" alt="محمد الزعيم" style="width:100%; height:100%; object-fit:cover; border-radius:6px;">
+</div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-body">
+    <div>
+      <div class="section-head">
+        <div class="kicker">من أنا</div>
+        <h2>التدريس نقطة الانطلاق، والتكنولوجيا وسيلة لتعميق الفهم</h2>
+      </div>
+      <p>أدرّس مادتي الفيزياء والكيمياء بالثانوية التأهيلية الوفاق بسيدي الزوين، وأومن بأن التكنولوجيا حين توظَّف بذكاء تتحول إلى جسر حقيقي بين المتعلم والمعرفة.</p>
+      <p>من هذا المنطلق، أطوّر تطبيقات بيداغوجية ومحاكاة تعليمية تُبسّط المفاهيم العلمية المعقدة، وأنتج محتوى تربويا على منصة يوتيوب يواكب التلاميذ في مسارهم الدراسي، بهدف الجمع بين صرامة المادة العلمية وسهولة الوصول إليها.</p>
+    </div>
+    <div id="subjects" class="subject-cards">
+      <div class="subject-card">
+        <i class="fa-solid fa-bolt"></i>
+        <div>
+          <h3>الفيزياء</h3>
+          <p>تبسيط الظواهر الفيزيائية عبر محاكاة تفاعلية وتجارب مرئية تقرّب المفاهيم النظرية من فهم التلميذ.</p>
+        </div>
+      </div>
+      <div class="subject-card">
+        <i class="fa-solid fa-flask"></i>
+        <div>
+          <h3>الكيمياء</h3>
+          <p>ربط المفاهيم الكيميائية بتطبيقاتها الواقعية، مع تدريب مستمر على المصطلحات العلمية بالعربية والفرنسية.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="apps">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">تطبيقاتي</div>
+      <h2>تطبيقات بيداغوجية أصممها لخدمة التلميذ والأسرة التعليمية</h2>
+      <p>ثلاثة مشاريع رقمية، بين تطبيق متوفر حاليا واثنين في طور الإطلاق القريب.</p>
+    </div>
+    <div class="apps-grid">
+
+      <div class="app-card">
+        <div class="app-top">
+          <div class="app-icon"><i class="fa-solid fa-compass"></i></div>
+          <span class="status live">متوفر الآن</span>
+        </div>
+        <h3>مسارك</h3>
+        <p>تطبيق خاص بالتوجيه المدرسي، يواكب مشاريع التلاميذ الشخصية ومستجدات الساحة التعليمية بشكل مستمر.</p>
+        <a class="app-link" href="https://play.google.com/store/apps/details?id=com.ezziymy.WifaqOriontation&pcampaignid=web_share" target="_blank" rel="noopener">
+          <i class="fa-brands fa-google-play"></i> تحميل التطبيق من متجر Google Play
+        </a>
+      </div>
+
+      <div class="app-card">
+        <div class="app-top">
+          <div class="app-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <span class="status soon">قريباً</span>
+        </div>
+        <h3>Edu Ezziymy</h3>
+        <p>منصة تعلّم تكاملية تُحدَّث بشكل دوري، تواكب تعلمات التلاميذ في السلكين الإعدادي والتأهيلي.</p>
+        <span class="app-link disabled"><i class="fa-solid fa-hourglass-half"></i> سيتم الإطلاق قريباً</span>
+      </div>
+
+      <div class="app-card">
+        <div class="app-top">
+          <div class="app-icon"><i class="fa-solid fa-gamepad"></i></div>
+          <span class="status soon">قريباً</span>
+        </div>
+        <h3>كراش الفيزياء</h3>
+        <p>لعبة تعليمية تُدرّب التلاميذ على المصطلحات العلمية بالعربية والفرنسية، لفائدة السلكين الإعدادي والتأهيلي.</p>
+        <span class="app-link disabled"><i class="fa-solid fa-hourglass-half"></i> سيتم الإطلاق قريباً</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="content">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">المحتوى التعليمي</div>
+      <h2>صناعة محتوى تربوي على يوتيوب</h2>
+    </div>
+    <div class="content-block">
+      <div>
+        <div class="yt-badge"><i class="fa-brands fa-youtube"></i></div>
+        <h3>محتوى علمي يبسّط ولا يختصر</h3>
+        <p>إلى جانب التدريس وتطوير التطبيقات، أنتج فيديوهات تعليمية تشرح مفاهيم الفيزياء والكيمياء بأسلوب مبسّط، وتواكب التلاميذ في تحضير الدروس والمراجعة.</p>
+        <a class="app-link" href="https://www.youtube.com/@mohamedez-ziymy8617" target="_blank" rel="noopener" style="margin-top:20px; display:inline-flex; border-top:none; padding-top:0;">
+          <i class="fa-brands fa-youtube"></i> زيارة القناة على يوتيوب
+        </a>
+      </div>
+      <div class="content-points">
+        <div class="pt"><i class="fa-solid fa-circle"></i><span>شرح مفاهيم البرنامج الدراسي للسلكين الإعدادي والتأهيلي</span></div>
+        <div class="pt"><i class="fa-solid fa-circle"></i><span>محاكاة وتجارب مرئية تقرّب الظواهر العلمية من المتعلم</span></div>
+        <div class="pt"><i class="fa-solid fa-circle"></i><span>محتوى مرافق لتطبيقاتي البيداغوجية ومكمّل لها</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">تواصل معي</div>
+      <h2>للاستفسارات، الشراكات، أو التعاون البيداغوجي</h2>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card cta" href="https://wa.me/212609583996" target="_blank" rel="noopener">
+        <i class="fa-brands fa-whatsapp"></i>
+        <div>
+          <div class="label">واتساب</div>
+          <div class="value">0609583996</div>
+        </div>
+      </a>
+      <a class="contact-card cta" href="mailto:mohamed.ezziymy@gmail.com">
+        <i class="fa-solid fa-envelope"></i>
+        <div>
+          <div class="label">البريد الإلكتروني</div>
+          <div class="value">mohamed.ezziymy@gmail.com</div>
+        </div>
+      </a>
+      <div class="contact-card">
+        <i class="fa-solid fa-location-dot"></i>
+        <div>
+          <div class="label">مكان العمل</div>
+          <div class="value">الثانوية التأهيلية الوفاق، سيدي الزوين</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 محمد الزعيم — أستاذ الفيزياء والكيمياء، ومطور تطبيقات تعليمية.</p>
+    <span class="fmark">الفيزياء · الكيمياء · التكنولوجيا التعليمية</span>
+  </div>
+</footer>
+
+</body>
+</html>
